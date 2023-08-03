@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green_background"
+    tools:context=".HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="372dp"
+            android:layout_height="89dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/logo"
+            android:contentDescription="@string/app_name"
+            android:background="@color/zxing_transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/text_description"
+            android:layout_width="256dp"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:text="@string/description_content"
+            android:contentDescription="@string/description_content"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="120dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+        <TextView
+            android:id="@+id/text_subtext"
+            android:layout_width="286dp"
+            android:layout_height="80dp"
+            android:gravity="center"
+            android:text="@string/description_subtext"
+            android:contentDescription="@string/description_subtext"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_description" />
+
+        
+        <ImageButton
+            android:id="@+id/btn_scan"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:background="@drawable/round_corner"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:src="@drawable/state_layer"
+            android:contentDescription="@string/scan_button"
+            app:layout_constraintTop_toBottomOf="@id/text_subtext"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</FrameLayout>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/green_background"
+    android:id="@+id/fragment_container_conference"
+    tools:context=".ConferenceFragment">
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageButton
+            android:id="@+id/btn_close"
+            android:layout_width="92dp"
+            android:layout_height="40dp"
+            android:background="@drawable/round_circling"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:src="@drawable/btn_fechar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+        
+        <TextView
+            android:id="@+id/text_desc_conf"
+            android:layout_width="332dp"
+            android:layout_height="56dp"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:layout_marginTop="70dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:text="@string/description_conf_info"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_close"/>
+
+
+        <TextView
+            android:id="@+id/text_cnpj"
+            android:layout_width="332dp"
+            android:layout_height="24dp"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:layout_marginTop="70dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:text="@string/cnpj"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_desc_conf"/>
+
+        <EditText
+            android:id="@+id/edt_cnpj"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:textColor="@color/white"
+            android:layout_marginTop="12dp"
+            android:textSize="16sp"
+            android:backgroundTint="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_cnpj"
+            tools:text="33.511.889/0001-20"/>
+        
+        <View
+            android:layout_width="332dp"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edt_cnpj"/>
+
+
+        <TextView
+            android:id="@+id/text_key"
+            android:layout_width="332dp"
+            android:layout_height="24dp"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:layout_marginTop="70dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:text="@string/key"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edt_cnpj"/>
+
+        <EditText
+            android:id="@+id/edt_key"
+            android:layout_width="300dp"
+            android:layout_height="70dp"
+            android:textColor="@color/white"
+            android:layout_marginTop="12dp"
+            android:textSize="16sp"
+            android:backgroundTint="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_key"
+            tools:text="3219 1105 5707 1400 0825 5500 1005 9146 6211 3308 2968"/>
+
+        <View
+            android:layout_width="332dp"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edt_key"/>
+
+
+        <TextView
+            android:id="@+id/text_value"
+            android:layout_width="332dp"
+            android:layout_height="24dp"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:layout_marginTop="70dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginEnd="40dp"
+            android:text="@string/value"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edt_key"/>
+
+        <EditText
+            android:id="@+id/edt_value"
+            android:layout_width="300dp"
+            android:layout_height="40dp"
+            android:textColor="@color/white"
+            android:layout_marginTop="12dp"
+            android:textSize="16sp"
+            android:backgroundTint="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_value"
+            tools:text="R$ 190,00"/>
+
+        <View
+            android:layout_width="332dp"
+            android:layout_height="1dp"
+            android:background="@color/white"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edt_value"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    
+
+</FrameLayout>
