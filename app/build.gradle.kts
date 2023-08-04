@@ -48,7 +48,7 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.5.0")
 
     //Scan Zxing | Code Scan
-    implementation("com.journeyapps:zxing-android-embedded:4.2.0")
+    implementation("com.journeyapps:zxing-android-embedded:4.3.0")
     implementation("com.google.zxing:core:3.4.0")
 
     testImplementation("junit:junit:4.13.2")

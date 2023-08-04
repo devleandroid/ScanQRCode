@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/green_background"
-    tools:context=".SplashFragment">
+    tools:context=".presentation.fragment.SplashFragment">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,6 +16,7 @@
             android:layout_width="197dp"
             android:layout_height="160dp"
             android:src="@drawable/icon_splash"
+            android:contentDescription="@string/app_name"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

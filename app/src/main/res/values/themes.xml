@@ -1,9 +1,11 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.ScanQRcode" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
          <item name="colorPrimary">@color/green_background</item>
     </style>
 
-    <style name="Theme.ScanQRcode" parent="Base.Theme.ScanQRcode" />
+    <style name="Theme.ScanQRcode" parent="Base.Theme.ScanQRcode" >
+        <item name="colorPrimary">@color/green_background</item>
+    </style>
 </resources>

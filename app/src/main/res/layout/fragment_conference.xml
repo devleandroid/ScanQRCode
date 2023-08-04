@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/green_background"
     android:id="@+id/fragment_container_conference"
-    tools:context=".ConferenceFragment">
+    tools:context=".presentation.fragment.ConferenceFragment">
     
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,12 +14,13 @@
 
         <ImageButton
             android:id="@+id/btn_close"
-            android:layout_width="92dp"
-            android:layout_height="40dp"
+            android:layout_width="102dp"
+            android:layout_height="48dp"
             android:background="@drawable/round_circling"
+            android:contentDescription="@string/btnClose"
             android:layout_marginTop="30dp"
             android:layout_marginStart="40dp"
-            android:layout_marginEnd="40dp"
+            android:layout_marginEnd="20dp"
             android:src="@drawable/btn_fechar"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
@@ -56,16 +57,20 @@
         <EditText
             android:id="@+id/edt_cnpj"
             android:layout_width="300dp"
-            android:layout_height="40dp"
+            android:layout_height="48dp"
             android:textColor="@color/white"
             android:layout_marginTop="12dp"
+            android:autofillHints="creditCardNumber"
+            android:editable="false"
+            android:inputType="none"
             android:textSize="16sp"
             android:backgroundTint="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_cnpj"
-            tools:text="33.511.889/0001-20"/>
-        
+            tools:text="33.511.889/0001-20"
+            tools:ignore="Deprecated" />
+
         <View
             android:layout_width="332dp"
             android:layout_height="1dp"
@@ -96,6 +101,8 @@
             android:layout_height="70dp"
             android:textColor="@color/white"
             android:layout_marginTop="12dp"
+            android:editable="false"
+            android:inputType="none"
             android:textSize="16sp"
             android:backgroundTint="@android:color/transparent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -130,15 +137,18 @@
         <EditText
             android:id="@+id/edt_value"
             android:layout_width="300dp"
-            android:layout_height="40dp"
-            android:textColor="@color/white"
+            android:layout_height="48dp"
             android:layout_marginTop="12dp"
-            android:textSize="16sp"
             android:backgroundTint="@android:color/transparent"
+            android:textColor="@color/white"
+            android:editable="false"
+            android:inputType="none"
+            android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_value"
-            tools:text="R$ 190,00"/>
+            tools:text="R$ 190,00" />
 
         <View
             android:layout_width="332dp"
