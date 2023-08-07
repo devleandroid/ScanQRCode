@@ -37,10 +37,7 @@
         <action
             android:id="@+id/action_conferenceFragment_to_homeFragment"
             app:destination="@id/homeFragment"
-            app:popUpTo="@id/navigation_graph"
+            app:popUpTo="@id/conferenceFragment"
             app:popUpToInclusive="true" />
-        <argument
-            android:name="value"
-            app:argType="string[]" />
     </fragment>
 </navigation>

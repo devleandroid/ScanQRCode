@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.application.scancode.databinding.FragmentHomeBinding
 import com.application.scancode.presentation.activity.ReadQRCodeActivity
+import com.application.scancode.viewmodel.ScanViewModel
 import com.journeyapps.barcodescanner.ScanContract
 import com.journeyapps.barcodescanner.ScanIntentResult
 import com.journeyapps.barcodescanner.ScanOptions
@@ -22,11 +24,13 @@ import com.journeyapps.barcodescanner.ScanOptions
  */
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
+    private lateinit var viewModel: ScanViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        viewModel = ViewModelProvider(activity!!)[ScanViewModel::class.java]
         binding = FragmentHomeBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -65,15 +69,15 @@ class HomeFragment : Fragment() {
     ) { result: ScanIntentResult ->
         if (!result.contents.isNullOrEmpty()) {
             val dataValue = result.contents.split("|").toTypedArray()
-
-            val action = HomeFragmentDirections.actionHomeFragmentToConferenceFragment(dataValue)
+            viewModel.setValueScanCode(dataValue)
+            val action = HomeFragmentDirections.actionHomeFragmentToConferenceFragment()
             findNavController().navigate(action)
         } else {
             // CANCELED
             // Valores usados para testar no emulador
             // val dataValue = "33511889000120|32191105570714000825550010059146621133082968|190.00".split("|").toTypedArray()
-
-            // val action = HomeFragmentDirections.actionHomeFragmentToConferenceFragment(dataValue)
+            // viewModel.setValueScanCode(dataValue)
+            // val action = HomeFragmentDirections.actionHomeFragmentToConferenceFragment()
             // findNavController().navigate(action)
             Toast.makeText(activity, "Leitura não realizada.", Toast.LENGTH_SHORT).show()
         }
