@@ -13,6 +13,7 @@
         android:layout_height="match_parent">
 
         <ImageView
+            android:id="@+id/img_splash"
             android:layout_width="197dp"
             android:layout_height="160dp"
             android:src="@drawable/icon_splash"

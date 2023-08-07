@@ -6,9 +6,12 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
+import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.application.scancode.R
+import com.google.android.material.transition.MaterialSharedAxis
 
 /**
  * Tela de apresentação do aplicativo
@@ -26,9 +29,22 @@ class SplashFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val backgroundImage: ImageView = view.findViewById(R.id.img_splash)
+        val slideAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.side_splash)
+        backgroundImage.startAnimation(slideAnimation)
+
 
         Handler(Looper.getMainLooper()).postDelayed({
-            findNavController().navigate(R.id.action_splashFragment_to_homeFragment)
+            val action = SplashFragmentDirections.actionSplashFragmentToHomeFragment().apply {
+                exitTransition = MaterialSharedAxis(
+                    MaterialSharedAxis.Z,
+                    /* forward= */ true
+                ).apply {
+                    duration = 2000
+                }
+            }
+
+            findNavController().navigate(action)
             activity?.fragmentManager?.popBackStack()
         }, 3000)
     }

@@ -11,6 +11,7 @@ import androidx.navigation.findNavController
 import com.application.scancode.databinding.FragmentConferenceBinding
 import com.application.scancode.utils.MaskEditUtil
 import com.application.scancode.viewmodel.ScanViewModel
+import com.google.android.material.transition.MaterialSharedAxis
 
 
 /**
@@ -51,7 +52,14 @@ class ConferenceFragment : Fragment() {
 
     private fun setOnClickListener(view: View) {
         binding.btnClose.setOnClickListener {
-            val action = ConferenceFragmentDirections.actionConferenceFragmentToHomeFragment()
+            val action = ConferenceFragmentDirections.actionConferenceFragmentToHomeFragment().apply {
+                exitTransition = MaterialSharedAxis(
+                    MaterialSharedAxis.Z,
+                    /* forward= */ true
+                ).apply {
+                    duration = 2000
+                }
+            }
             view.findNavController().navigate(action)
         }
     }
