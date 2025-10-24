@@ -1,12 +1,13 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jetbrains.kotlin.plugin.compose") version "2.0.0"
     id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
     namespace = "com.application.scancode"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.application.scancode"
@@ -36,6 +37,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        compose = true
     }
     packaging {
         resources.excludes.addAll(
@@ -54,7 +56,16 @@ dependencies {
     implementation("com.google.android.material:material:1.8.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
 
+    // Compose
+    implementation(platform("androidx.compose:compose-bom:2023.10.01"))
+    implementation("androidx.compose.ui:ui")
+    implementation("androidx.compose.ui:ui-graphics")
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.material:material-icons-extended")
+
     //Navigation
+    implementation("androidx.navigation:navigation-compose:2.7.3")
     implementation("androidx.navigation:navigation-fragment-ktx:2.5.0")
     implementation("androidx.navigation:navigation-ui-ktx:2.5.0")
 
@@ -63,7 +74,11 @@ dependencies {
     implementation("com.google.zxing:core:3.4.0")
 
     //ViewModel
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0")
+
+    // Permissions
+    implementation("com.google.accompanist:accompanist-permissions:0.32.0")
 
     androidTestImplementation("junit:junit:4.13.2")
     androidTestImplementation("org.junit.jupiter:junit-jupiter:5.8.1")

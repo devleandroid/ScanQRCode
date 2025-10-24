@@ -4,11 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import com.application.scancode.databinding.FragmentConferenceBinding
+import com.application.scancode.presentation.screens.ConferenceScreen
+import com.application.scancode.ui.theme.ScanQRCodeTheme
 import com.application.scancode.utils.MaskEditUtil
 import com.application.scancode.viewmodel.ScanViewModel
 import com.google.android.material.transition.MaterialSharedAxis
@@ -23,17 +27,29 @@ class ConferenceFragment : Fragment() {
 
     private lateinit var binding: FragmentConferenceBinding
 
+    private val viewModel: ScanViewModel by activityViewModels()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentConferenceBinding.inflate(layoutInflater)
-        return binding.root
+        //binding = FragmentConferenceBinding.inflate(layoutInflater)
+        //return binding.root
+        return ComposeView(requireContext()).apply {
+            setContent {
+                ScanQRCodeTheme {
+                    ConferenceScreen(
+                        navController = findNavController(),
+                        viewModel = viewModel
+                    )
+                }
+            }
+        }
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val viewModel = ViewModelProvider(activity!!)[ScanViewModel::class.java]
+        // val viewModel = ViewModelProvider(activity!!)[ScanViewModel::class.java]
 
         binding.edtCnpj.addTextChangedListener(MaskEditUtil.mask(binding.edtCnpj, MaskEditUtil.FORMAT_CNPJ))
 
@@ -41,11 +57,11 @@ class ConferenceFragment : Fragment() {
 
         binding.edtValue.addTextChangedListener(MaskEditUtil.mask(binding.edtValue, MaskEditUtil.FRMAT_MONETARY))
 
-        viewModel.qrCode.let {
+        *//*viewModel.qrCode.let {
             binding.edtCnpj.setText(it.cnpj)
             binding.edtKey.setText(it.key)
             binding.edtValue.setText(it.valuePrice)
-        }
+        }*//*
 
         setOnClickListener(view)
     }
@@ -55,12 +71,12 @@ class ConferenceFragment : Fragment() {
             val action = ConferenceFragmentDirections.actionConferenceFragmentToHomeFragment().apply {
                 exitTransition = MaterialSharedAxis(
                     MaterialSharedAxis.Z,
-                    /* forward= */ true
+                    *//* forward= *//* true
                 ).apply {
                     duration = 2000
                 }
             }
             view.findNavController().navigate(action)
         }
-    }
+    }*/
 }

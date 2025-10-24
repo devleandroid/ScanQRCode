@@ -6,11 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.application.scancode.databinding.FragmentHomeBinding
 import com.application.scancode.presentation.activity.ReadQRCodeActivity
+import com.application.scancode.presentation.screens.HomeScreen
+import com.application.scancode.ui.theme.ScanQRCodeTheme
 import com.application.scancode.viewmodel.ScanViewModel
 import com.journeyapps.barcodescanner.ScanContract
 import com.journeyapps.barcodescanner.ScanIntentResult
@@ -30,12 +33,22 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        viewModel = ViewModelProvider(activity!!)[ScanViewModel::class.java]
+        /*viewModel = ViewModelProvider(activity!!)[ScanViewModel::class.java]
         binding = FragmentHomeBinding.inflate(layoutInflater)
-        return binding.root
+        return binding.root*/
+        return ComposeView(requireContext()).apply {
+            setContent {
+                ScanQRCodeTheme {
+                    HomeScreen(
+                        navController = findNavController(),
+                        viewModel = viewModel
+                    )
+                }
+            }
+        }
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setOnClickListener()
     }
@@ -81,6 +94,6 @@ class HomeFragment : Fragment() {
             // findNavController().navigate(action)
             Toast.makeText(activity, "Leitura não realizada.", Toast.LENGTH_SHORT).show()
         }
-    }
+    }*/
 
 }

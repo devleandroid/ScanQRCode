@@ -8,9 +8,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
+import androidx.compose.runtime.Composer
+import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.application.scancode.R
+import com.application.scancode.presentation.screens.SplashScreen
+import com.application.scancode.ui.theme.ScanQRCodeTheme
 import com.google.android.material.transition.MaterialSharedAxis
 
 /**
@@ -22,12 +26,21 @@ class SplashFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_splash, container, false)
+        // return inflater.inflate(R.layout.fragment_splash, container, false)
+        return ComposeView(requireContext()).apply {
+            setContent {
+                ScanQRCodeTheme {
+                    SplashScreen(
+                        navController = findNavController()
+                    )
+                }
+            }
+        }
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val backgroundImage: ImageView = view.findViewById(R.id.img_splash)
         val slideAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.side_splash)
@@ -38,7 +51,7 @@ class SplashFragment : Fragment() {
             val action = SplashFragmentDirections.actionSplashFragmentToHomeFragment().apply {
                 exitTransition = MaterialSharedAxis(
                     MaterialSharedAxis.Z,
-                    /* forward= */ true
+                    *//* forward= *//* true
                 ).apply {
                     duration = 2000
                 }
@@ -47,5 +60,5 @@ class SplashFragment : Fragment() {
             findNavController().navigate(action)
             activity?.fragmentManager?.popBackStack()
         }, 3000)
-    }
+    }*/
 }
