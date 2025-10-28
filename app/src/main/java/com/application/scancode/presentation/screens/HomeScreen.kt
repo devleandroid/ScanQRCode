@@ -7,13 +7,16 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -68,7 +71,7 @@ fun HomeScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(GreenBackground),
+            .background(colorResource(R.color.green_background)),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
@@ -113,15 +116,17 @@ fun HomeScreen(
             modifier = Modifier
                 .width(300.dp)
                 .height(60.dp),
-            shape = MaterialTheme.shapes.medium,
+            shape = RoundedCornerShape(32.dp),
             colors = ButtonDefaults.buttonColors(
-                containerColor = Color.Transparent
-            )
+                containerColor = Color.White
+            ),
+            contentPadding = PaddingValues(0.dp)
         ) {
-            Text(
-                text = stringResource(id = R.string.scan_button),
-                color = White,
-                style = MaterialTheme.typography.bodyLarge
+            Image(
+                painter = painterResource(id = R.drawable.state_layer),
+                contentDescription = stringResource(R.string.scan_button),
+                modifier = Modifier.size(450.dp),
+                contentScale = ContentScale.Fit
             )
         }
     }

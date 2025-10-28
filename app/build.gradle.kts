@@ -7,18 +7,36 @@ plugins {
 
 android {
     namespace = "com.application.scancode"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.application.scancode"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    // 🔥 CONFIGURAÇÃO DOS BUILD VARIANTS
+    flavorDimensions += "ui"
+    productFlavors {
+        create("xml") {
+            dimension = "ui"
+            applicationIdSuffix = ".xml"
+            versionNameSuffix = "-xml"
+            resValue("string", "app_name","ScanQR XML")
+            buildConfigField("boolean", "IS_COMPOSE", "false")
+        }
+        create("compose") {
+            dimension = "ui"
+            applicationIdSuffix = ".compose"
+            versionNameSuffix = "-compose"
+            resValue("string", "app_name","ScanQR Compose")
+            buildConfigField("boolean", "IS_COMPOSE", "true")
+        }
+    }
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -38,6 +56,7 @@ android {
     buildFeatures {
         viewBinding = true
         compose = true
+        buildConfig = true
     }
     packaging {
         resources.excludes.addAll(
@@ -91,4 +110,6 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     androidTestImplementation("org.testng:testng:6.9.6")
+    testImplementation(kotlin("test"))
+    debugImplementation("androidx.compose.ui:ui-tooling:1.9.4")
 }

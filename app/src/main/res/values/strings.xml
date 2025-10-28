@@ -3,7 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="description_content">Leitura da NFCe ou NFe</string>
-    <string name="description_subtext">Agora você deve realizar a leitura da nota fiscal clicando no botão abaixo.</string>
+    <string name="description_subtext">Agora você deve realizar a leitura da \nnota fiscal clicando no botão abaixo.</string>
     <string name="description_conf_info">Conferência de informações para pagamento:</string>
     <string name="cnpj">CNPJ:</string>
     <string name="key">Chave:\n</string>

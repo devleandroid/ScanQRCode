@@ -28,19 +28,10 @@ class SplashFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        // return inflater.inflate(R.layout.fragment_splash, container, false)
-        return ComposeView(requireContext()).apply {
-            setContent {
-                ScanQRCodeTheme {
-                    SplashScreen(
-                        navController = findNavController()
-                    )
-                }
-            }
-        }
+        return inflater.inflate(R.layout.fragment_splash, container, false)
     }
 
-    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val backgroundImage: ImageView = view.findViewById(R.id.img_splash)
         val slideAnimation = AnimationUtils.loadAnimation(requireContext(), R.anim.side_splash)
@@ -51,7 +42,7 @@ class SplashFragment : Fragment() {
             val action = SplashFragmentDirections.actionSplashFragmentToHomeFragment().apply {
                 exitTransition = MaterialSharedAxis(
                     MaterialSharedAxis.Z,
-                    *//* forward= *//* true
+                    /* forward =*/ true
                 ).apply {
                     duration = 2000
                 }
@@ -60,5 +51,5 @@ class SplashFragment : Fragment() {
             findNavController().navigate(action)
             activity?.fragmentManager?.popBackStack()
         }, 3000)
-    }*/
+    }
 }

@@ -33,22 +33,12 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        /*viewModel = ViewModelProvider(activity!!)[ScanViewModel::class.java]
+        viewModel = ViewModelProvider(requireActivity())[ScanViewModel::class.java]
         binding = FragmentHomeBinding.inflate(layoutInflater)
-        return binding.root*/
-        return ComposeView(requireContext()).apply {
-            setContent {
-                ScanQRCodeTheme {
-                    HomeScreen(
-                        navController = findNavController(),
-                        viewModel = viewModel
-                    )
-                }
-            }
-        }
+        return binding.root
     }
 
-    /*override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setOnClickListener()
     }
@@ -94,6 +84,6 @@ class HomeFragment : Fragment() {
             // findNavController().navigate(action)
             Toast.makeText(activity, "Leitura não realizada.", Toast.LENGTH_SHORT).show()
         }
-    }*/
+    }
 
 }

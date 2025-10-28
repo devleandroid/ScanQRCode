@@ -1,5 +1,6 @@
 package com.application.scancode.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -21,26 +22,22 @@ class ScanViewModel : ViewModel() {
                 valuePrice = value.getOrElse(2) {""}
             )
 
-            //getValueScancode()
+            getValueScancode()
         }
     }
 
-    val valueLiveData = MutableLiveData<Array<String>>()
+    private val _valueQRCode = MutableLiveData<QrCodeData>()
 
-    private val _valueQRCode = MutableLiveData<Array<QrCodeData?>>()
+    var qrCodes: LiveData<QrCodeData> = _valueQRCode
 
-    var qrCodes = _valueQRCode
-
-    /*fun getValueScancode() {
-        viewModelScope.launch {
-            qrCode.apply {
-                cnpj = valueLiveData.value?.get(0).toString()
-                key = valueLiveData.value?.get(1).toString()
-                valuePrice = valueLiveData.value?.get(2).toString()
-            }
-        }
-        return valueQRCode.postValue(arrayOf(qrCode))
-    }*/
+    fun getValueScancode() {
+        val qrCode = QrCodeData(
+            cnpj = _qrCode.value?.cnpj ?: "",
+            key = _qrCode.value?.key ?: "",
+            valuePrice = _qrCode.value?.valuePrice ?: ""
+        )
+        return _valueQRCode.postValue(qrCode)
+    }
 
     fun clearData() {
         viewModelScope.launch { _qrCode.value = null }
