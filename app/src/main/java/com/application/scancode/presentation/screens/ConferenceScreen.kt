@@ -92,9 +92,7 @@ fun ConferenceScreen(
             Button(
                 onClick = {
                     viewModel.clearData()
-                    navController.navigate("home") {
-                        popUpTo("conference") { inclusive = true }
-                    }
+                    navController.popBackStack()
                 },
                 modifier = Modifier
                     .width(102.dp)
