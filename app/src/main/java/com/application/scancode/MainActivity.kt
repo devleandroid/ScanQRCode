@@ -3,7 +3,7 @@ package com.application.scancode
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import com.application.scancode.presentation.screens.ScanQRCodeApp
+import com.application.scancode.compose.data.screens.ScanQRCodeApp
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

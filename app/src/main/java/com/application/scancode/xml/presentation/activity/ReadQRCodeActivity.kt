@@ -1,4 +1,4 @@
-package com.application.scancode.presentation.activity
+package com.application.scancode.xml.viewmodel.presentation.activity
 
 import android.os.Bundle
 import android.view.KeyEvent

@@ -1,4 +1,4 @@
-package com.application.scancode.presentation.fragment
+package com.application.scancode.xml.viewmodel.presentation.fragment
 
 import android.os.Bundle
 import android.os.Handler
@@ -8,13 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
-import androidx.compose.runtime.Composer
-import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.transition.Transition
 import com.application.scancode.R
-import com.application.scancode.presentation.screens.SplashScreen
-import com.application.scancode.ui.theme.ScanQRCodeTheme
 import com.google.android.material.transition.MaterialSharedAxis
 
 /**
@@ -44,7 +41,7 @@ class SplashFragment : Fragment() {
                     MaterialSharedAxis.Z,
                     /* forward =*/ true
                 ).apply {
-                    duration = 2000
+                        duration = 2000
                 }
             }
 

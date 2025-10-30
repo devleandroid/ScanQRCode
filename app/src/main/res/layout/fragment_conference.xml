@@ -6,7 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/green_background"
     android:id="@+id/fragment_container_conference"
-    tools:context=".presentation.fragment.ConferenceFragment">
+    tools:context=".xml.viewmodel.presentation.fragment.ConferenceFragment">
     
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

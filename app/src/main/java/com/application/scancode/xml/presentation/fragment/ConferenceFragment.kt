@@ -1,4 +1,4 @@
-package com.application.scancode.presentation.fragment
+package com.application.scancode.xml.viewmodel.presentation.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,12 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.findNavController
 import com.application.scancode.databinding.FragmentConferenceBinding
-import com.application.scancode.utils.MaskEditUtil
-import com.application.scancode.viewmodel.ScanViewModel
+import com.application.scancode.xml.utils.MaskEditUtil
+import com.application.scancode.xml.viewmodel.ScanViewModel
 import com.google.android.material.transition.MaterialSharedAxis
+import kotlinx.coroutines.launch
 
 
 /**
@@ -43,10 +46,14 @@ class ConferenceFragment : Fragment() {
 
         binding.edtValue.addTextChangedListener(MaskEditUtil.mask(binding.edtValue, MaskEditUtil.FRMAT_MONETARY))
 
-        viewModel.qrCodes.observe(viewLifecycleOwner) {
-            binding.edtCnpj.setText(it.cnpj)
-            binding.edtKey.setText(it.key)
-            binding.edtValue.setText(it.valuePrice)
+        viewLifecycleOwner.lifecycleScope.launch {
+            viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.qrCode.collect {
+                    binding.edtCnpj.setText(it?.cnpj)
+                    binding.edtKey.setText(it?.key)
+                    binding.edtValue.setText(it?.valuePrice)
+                }
+            }
         }
 
         setOnClickListener(view)

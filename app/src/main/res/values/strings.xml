@@ -8,6 +8,11 @@
     <string name="cnpj">CNPJ:</string>
     <string name="key">Chave:\n</string>
     <string name="value">Valor:</string>
+    <string name="chaveNFe">ChaveNFe</string>
+    <string name="versao">Versão</string>
+    <string name="ambiente">Ambiente</string>
+    <string name="idCSC">IdCSC</string>
+    <string name="hash">Hash</string>
     <string name="result_not_found">Resultado não encontrado.</string>
     <string name="scan_button">scan button</string>
     <string name="btnClose">Botão de fechar</string>

@@ -1,4 +1,4 @@
-package com.application.scancode.data.model
+package com.application.scancode.xml.data
 
 data class QrCodeData(
     var cnpj: String,

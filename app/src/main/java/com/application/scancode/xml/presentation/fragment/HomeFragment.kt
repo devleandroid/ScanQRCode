@@ -1,4 +1,4 @@
-package com.application.scancode.presentation.fragment
+package com.application.scancode.xml.viewmodel.presentation.fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,15 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.compose.ui.platform.ComposeView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.application.scancode.databinding.FragmentHomeBinding
-import com.application.scancode.presentation.activity.ReadQRCodeActivity
-import com.application.scancode.presentation.screens.HomeScreen
-import com.application.scancode.ui.theme.ScanQRCodeTheme
-import com.application.scancode.viewmodel.ScanViewModel
+import com.application.scancode.xml.viewmodel.presentation.activity.ReadQRCodeActivity
+import com.application.scancode.compose.viewmodel.ScanComposeViewModel
+import com.application.scancode.xml.viewmodel.ScanViewModel
 import com.journeyapps.barcodescanner.ScanContract
 import com.journeyapps.barcodescanner.ScanIntentResult
 import com.journeyapps.barcodescanner.ScanOptions

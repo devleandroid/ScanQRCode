@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.application.scancode.presentation.fragment.SplashFragment"
+        android:name="com.application.scancode.xml.viewmodel.presentation.fragment.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.application.scancode.presentation.fragment.HomeFragment"
+        android:name="com.application.scancode.xml.viewmodel.presentation.fragment.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/conferenceFragment"
-        android:name="com.application.scancode.presentation.fragment.ConferenceFragment"
+        android:name="com.application.scancode.xml.viewmodel.presentation.fragment.ConferenceFragment"
         android:label="fragment_conference"
         tools:layout="@layout/fragment_conference" >
         <action

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:theme="@style/zxing_CaptureTheme"
-    tools:context=".presentation.activity.ReadQRCodeActivity">
+    tools:context=".xml.viewmodel.presentation.activity.ReadQRCodeActivity">
 
 
     <com.journeyapps.barcodescanner.DecoratedBarcodeView
