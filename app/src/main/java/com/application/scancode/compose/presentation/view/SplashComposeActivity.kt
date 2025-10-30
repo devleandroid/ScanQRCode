@@ -1,5 +1,6 @@
-package com.application.scancode.presentation.activity
+package com.application.scancode.compose.presentation.view
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -8,17 +9,15 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.application.scancode.presentation.screens.HomeScreen
-import com.application.scancode.ui.theme.ScanQRCodeTheme
-import com.application.scancode.viewmodel.ScanViewModel
+import com.application.scancode.compose.data.screens.SplashScreen
+import com.application.scancode.compose.ui.theme.ScanQRCodeTheme
+
 
 /*
 *  Tela em Kotlin Compose
 */
-
-class HomeActivity: ComponentActivity() {
-    private lateinit var viewModel: ScanViewModel
-
+@SuppressLint("CustomSplashScreen")
+class SplashComposeActivity: ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -28,10 +27,7 @@ class HomeActivity: ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val navController = rememberNavController()
-                    HomeScreen(
-                        navController = navController,
-                        viewModel = viewModel
-                    )
+                    SplashScreen(navController = navController)
                 }
             }
         }

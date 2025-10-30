@@ -7,8 +7,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.application.scancode.presentation.screens.ScanQRCodeApp
-import com.application.scancode.ui.theme.ScanQRCodeTheme
+import com.application.scancode.compose.data.screens.ScanQRCodeApp
+import com.application.scancode.compose.ui.theme.ScanQRCodeTheme
 
 
 /*

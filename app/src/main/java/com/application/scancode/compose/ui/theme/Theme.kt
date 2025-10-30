@@ -1,4 +1,4 @@
-package com.application.scancode.ui.theme
+package com.application.scancode.compose.ui.theme
 
 import android.app.Activity
 import android.os.Build

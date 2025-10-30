@@ -1,4 +1,4 @@
-package com.application.scancode.presentation.screens
+package com.application.scancode.compose.data.screens
 
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
@@ -14,6 +14,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -21,7 +22,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.application.scancode.R
-import com.application.scancode.ui.theme.GreenBackground
 import kotlinx.coroutines.delay
 
 @Composable
@@ -64,5 +64,5 @@ fun SplashScreen(
 @Preview(showBackground = true)
 @Composable
 fun SplashScreenPreview() {
-    SplashScreen(navController = NavController(androidx.compose.ui.platform.LocalContext.current))
+    SplashScreen(navController = NavController(LocalContext.current))
 }

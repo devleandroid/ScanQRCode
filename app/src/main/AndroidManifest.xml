@@ -31,7 +31,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".presentation.activity.ReadQRCodeActivity"
+        <activity android:name=".xml.viewmodel.presentation.activity.ReadQRCodeActivity"
             android:configChanges="orientation"
             android:launchMode='singleTask'
             android:exported="true"/>

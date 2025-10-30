@@ -1,4 +1,4 @@
-package com.application.scancode.presentation.activity
+package com.application.scancode.compose.presentation.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -9,15 +9,15 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.application.scancode.presentation.screens.ConferenceScreen
-import com.application.scancode.ui.theme.ScanQRCodeTheme
-import com.application.scancode.viewmodel.ScanViewModel
+import com.application.scancode.compose.data.screens.ConferenceScreen
+import com.application.scancode.compose.ui.theme.ScanQRCodeTheme
+import com.application.scancode.xml.viewmodel.ScanViewModel
 
 /*
 *  Tela em Kotlin Compose
 */
 
-class ConferenceActivity: ComponentActivity() {
+class ConferenceComposeActivity: ComponentActivity() {
     private val viewModel: ScanViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {

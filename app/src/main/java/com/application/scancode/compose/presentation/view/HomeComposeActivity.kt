@@ -1,4 +1,4 @@
-package com.application.scancode.presentation.activity
+package com.application.scancode.compose.presentation.view
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -6,18 +6,19 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.findNavController
-import com.application.scancode.presentation.screens.SplashScreen
-import com.application.scancode.ui.theme.ScanQRCodeTheme
-
+import com.application.scancode.compose.data.screens.HomeScreen
+import com.application.scancode.compose.ui.theme.ScanQRCodeTheme
+import com.application.scancode.compose.viewmodel.ScanComposeViewModel
 
 /*
 *  Tela em Kotlin Compose
 */
-class SplashActivity: ComponentActivity() {
+
+class HomeComposeActivity: ComponentActivity() {
+    private lateinit var viewModel: ScanComposeViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -27,7 +28,10 @@ class SplashActivity: ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     val navController = rememberNavController()
-                    SplashScreen(navController = navController)
+                    HomeScreen(
+                        navController = navController,
+                        viewModel = viewModel
+                    )
                 }
             }
         }

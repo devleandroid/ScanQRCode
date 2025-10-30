@@ -1,4 +1,4 @@
-package com.application.scancode.presentation.screens
+package com.application.scancode.compose.data.screens
 
 import android.app.Activity
 import android.widget.Toast
@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -25,17 +24,15 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.application.scancode.R
-import com.application.scancode.ui.theme.GreenBackground
-import com.application.scancode.ui.theme.White
-import com.application.scancode.viewmodel.ScanViewModel
-import com.journeyapps.barcodescanner.ScanOptions
+import com.application.scancode.compose.ui.theme.White
+import com.application.scancode.compose.viewmodel.ScanComposeViewModel
 
 
 @Composable
 fun HomeScreen(
     navController: NavController,
     modifier: Modifier = Modifier,
-    viewModel: ScanViewModel = viewModel()
+    viewModel: ScanComposeViewModel = viewModel()
 ) {
     val context = LocalContext.current
 
@@ -55,7 +52,7 @@ fun HomeScreen(
     }
 
     // Função para lançar o scanner
-    val onScanClick: () -> Unit = {
+    /*val onScanClick: () -> Unit = {
         val options = ScanOptions().apply {
             setOrientationLocked(false)
             setCameraId(0)
@@ -66,6 +63,9 @@ fun HomeScreen(
         }
         val intent = options.createScanIntent(context)
         scannerLauncher.launch(intent)
+    }*/
+    val onScanClick: () -> Unit = {
+        navController.navigate("scanner")
     }
 
     Column(
