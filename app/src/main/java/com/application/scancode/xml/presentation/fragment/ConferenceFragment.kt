@@ -1,4 +1,4 @@
-package com.application.scancode.xml.viewmodel.presentation.fragment
+package com.application.scancode.xml.presentation.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,6 +10,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.findNavController
+import androidx.transition.Transition
 import com.application.scancode.databinding.FragmentConferenceBinding
 import com.application.scancode.xml.utils.MaskEditUtil
 import com.application.scancode.xml.viewmodel.ScanViewModel

@@ -31,7 +31,7 @@
 
     <fragment
         android:id="@+id/conferenceFragment"
-        android:name="com.application.scancode.xml.viewmodel.presentation.fragment.ConferenceFragment"
+        android:name="com.application.scancode.xml.presentation.fragment.ConferenceFragment"
         android:label="fragment_conference"
         tools:layout="@layout/fragment_conference" >
         <action
